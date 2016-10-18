@@ -1,0 +1,230 @@
+\documentclass[letterpaper, 12pt]{article}
+
+\gdef\mytitle{SEW}
+\gdef\mythema{.}
+
+\gdef\mysubject{Fraction module documentation}
+\gdef\mycourse{4CHIT 2016/17, SEW}
+\gdef\myauthor{Pierre Rieger}
+
+\gdef\myversion{1}
+\gdef\mybegin{Started \today}
+\gdef\myfinish{ }
+
+\gdef\mygrade{Note:}
+\gdef\myteacher{Teacher: W.Rafeiner}
+
+
+\usepackage{makeidx}
+\usepackage[usenames,dvipsnames,svgnames,table]{xcolor}
+
+%!TEX root=../document.tex
+
+\usepackage[in]{fullpage}
+% Fontencoding for possible copy&paste out of PDF
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx} 
+\usepackage{wasysym}
+\usepackage{textcomp}
+\usepackage{sectsty}
+\usepackage{caption}
+\usepackage{listings}
+\usepackage{array}
+\usepackage{colortbl}
+\usepackage{footmisc}
+\usepackage{fancyhdr}
+\usepackage{suffix}
+\usepackage{multirow}
+\usepackage{tabularx}
+\usepackage{hyperref}
+\usepackage{listings}
+\usepackage{accsupp}
+\usepackage{color}
+\usepackage{url}
+\usepackage[dvipsnames]{xcolor}
+\usepackage[longnamesfirst,nonamebreak]{natbib}
+\usepackage[headsep=1cm,headheight=3cm,hmargin=2cm,vmargin=2.5cm]{geometry}
+\usepackage[nolist]{acronym}
+
+% Definitions for Textcolor
+\usepackage{color}
+\definecolor{listings}{rgb}{0.96, 0.96, 0.96}
+\definecolor{update}{rgb}{1, 0.8, 0.8}
+\definecolor{config}{rgb}{0.8, 1, 0.8}
+\definecolor{gray}{rgb}{0.4,0.4,0.4}
+\definecolor{darkblue}{rgb}{0.0,0.0,0.6}
+\definecolor{cyan}{rgb}{0.0,0.6,0.6}
+
+% Java Syntaxhighligthning
+% strings
+\definecolor{javared}{rgb}{0.6,0,0}
+% comments
+\definecolor{javagreen}{rgb}{0.25,0.5,0.35}
+% keywords
+\definecolor{javapurple}{rgb}{0.5,0,0.35}
+% javadoc
+\definecolor{javadocblue}{rgb}{0.25,0.35,0.75}
+
+\lstset{
+	basicstyle=\ttfamily\small,
+	keywordstyle=\bfseries\color[rgb]{0.496,0.000,0.332},
+	commentstyle=\color[rgb]{0.246,0.496,0.371},
+	stringstyle=\color[rgb]{0.164,0.000,0.996},
+	tabsize=4,
+	breaklines=true,
+	numbers=left,
+	numberstyle=\tiny\color{black},
+	stepnumber=2,
+	numbersep=8pt,
+	numberstyle=\tiny,
+	captionpos=b,
+	xleftmargin=1cm,
+	showspaces=false,
+	showstringspaces=false,
+	basewidth={0.53em,0.45em},
+	frame=single,
+	xleftmargin=1cm,
+	basicstyle=\scriptsize,
+}
+
+
+\lstdefinestyle{Java}{
+	language=Java,
+	keywordstyle=\color{javapurple}\bfseries,
+	stringstyle=\color{javared},
+	commentstyle=\color{javagreen},
+	morecomment=[s][\color{javadocblue}]{/**}{*/},
+}
+
+\lstdefinestyle{XML}{
+	language=XML,
+	basicstyle=\ttfamily\small,
+	columns=fullflexible,
+	commentstyle=\color{gray}\upshape
+}
+
+\newcommand{\noncopynumber}[1]{
+	\BeginAccSupp{method=escape,ActualText={}}
+	#1
+	\EndAccSupp{}
+}
+\lstdefinestyle{bash}{
+	language=bash,
+	basicstyle=\ttfamily\small,
+	literate={-}{{-}}{1},
+	% http://tex.stackexchange.com/questions/145416/how-to-have-straight-single-quotes-in-lstlistings
+	upquote=true;
+	showstringspaces=false,
+	%numbers=none,
+	% http://tex.stackexchange.com/questions/122256/only-select-code-without-line-numbers
+	numberstyle=\tiny\noncopynumber,
+	breaklines=false,
+	columns=fullflexible,
+	basicstyle=\scriptsize
+}
+
+% http://tex.stackexchange.com/questions/83085/how-to-improve-listings-display-of-json-files
+\colorlet{punct}{red!60!black}
+\definecolor{background}{HTML}{EEEEEE}
+\definecolor{delim}{RGB}{20,105,176}
+\colorlet{numb}{magenta!60!black}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\lhead{\mysubject}
+\chead{}
+\rhead{\bfseries\mythema}
+\lfoot{\mycourse}
+\cfoot{\thepage}
+\rfoot{\myauthor}
+
+\begin{document}
+\pagenumbering{Roman}
+\begin{titlepage}
+	
+	\begin{figure}[!h]
+		\begin{flushright}
+			\includegraphics[width=0.3\linewidth]{img/jdIT_tgm.png}
+		\end{flushright}
+	\end{figure}
+	
+	\vspace{2.5cm} 
+	
+	{\begin{center} \bfseries\huge
+			\rule{17.5cm}{0.1mm}  
+			\\[5mm]
+			\mytitle\\[5mm]
+			\mythema\\
+			\rule{17.5cm}{0.1mm}  
+		\end{center}}
+		
+		{\begin{flushright} \bfseries\Large
+				\vspace{2cm}
+				\mysubject\\
+				\mycourse\\[10mm]
+				\myauthor\\[10mm]
+			\end{flushright}}
+			
+			{\begin{table}[!h] \bfseries\normalsize
+					\begin{tabularx}{\textwidth}{lXr @{\hspace{0mm}}}
+						&& Version \myversion\\
+						\mygrade && \mybegin\\
+						\myteacher && \myfinish\\
+					\end{tabularx}
+				\end{table}}
+				
+\end{titlepage}
+			
+	\parindent 0pt
+	\parskip 6pt
+	\newpage
+	\tableofcontents
+	\newpage
+	\pagenumbering{arabic}
+	\pagestyle{fancy}
+	
+
+
+\section{Introduction}
+This protocol describes how the assignment was solved. \\
+It discuess the use of Sphinx to build a well formated documentation for modern python code \\
+as well as a guide to \textbf{TDD}(Test Driven Development)
+
+\section{Code}
+The code used to solve the assignment can be found under: \\
+https://github.com/Pierre-Rieger/sew/tree/master/python. \\
+
+\subsection{about the code}
+The code for Bruch(which is refereed to as "fraction" in the following paragraphs) heavily deals with operator overloading to the point that 
+almost every magic method that python provides is overridden. This is to ensure a natural work-flow that you would expect from a mathematical library.
+It uses functions such as finding the least common denominator (ger: kgv), it also provides a way to be treated as a sequence by implementing \verb|__iter__|.
+Herby following code is possible \verb|x, y = Bruch(1, 2)|.
+The only thing the author of this document frowns upon is that the object is mutable by exposing \verb|self.zaheler and self.nenner|.\\
+
+All overloaded operators return a new object.
+
+\section{Tests}
+As of \today all 64 of the 64 tests are passing.
+To check this run \verb|python3 testfall.py| in a shell. \\
+Results are following \\
+\lstinputlisting[language=XML]{tres.xml}
+
+\section{Documentation}
+Like the tests, the documentation can also be found on github!
+
+
+
+\clearpage
+
+\bibliographystyle{unsrt}
+\bibliography{references}
+\listoftables
+\lstlistoflistings
+\listoffigures
+
+
+	
+\end{document}

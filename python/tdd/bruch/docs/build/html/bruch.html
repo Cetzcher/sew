@@ -1,0 +1,408 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Bruch &#8212; Bruch 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="top" title="Bruch 1.0 documentation" href="index.html" />
+    <link rel="prev" title="Welcome to Bruch’s documentation!" href="index.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Welcome to Bruch’s documentation!"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Bruch 1.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-bruch">
+<span id="bruch"></span><h1>Bruch<a class="headerlink" href="#module-bruch" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="bruch.Bruch">
+<em class="property">class </em><code class="descclassname">bruch.</code><code class="descname">Bruch</code><span class="sig-paren">(</span><em>*args</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bruch/Bruch.html#Bruch"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bruch.Bruch" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<p>Represents a Fraction in the form of x / y
+The Fraction utilizes lots of operator overloading it acts as you would expect a fraction to behave
+addition and subtraction find the new deliminator by calculating the LCD of both.
+Every operator returns a new object.
+Beware the Fraction object is mutable, since self.zaehler and self.nenner are exposed as the tests require!</p>
+<dl class="docutils">
+<dt><strong>How to use</strong></dt>
+<dd><table class="first docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Example:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">b0</span> <span class="o">=</span> <span class="n">Bruch</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>  <span class="c1"># creates a fraction 1 / 2</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">b1</span> <span class="o">=</span> <span class="n">Bruch</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">res</span> <span class="o">=</span> <span class="n">b0</span> <span class="o">+</span> <span class="n">b1</span>     <span class="c1"># -&gt; Bruch(3/4)</span>
+</pre></div>
+</div>
+<div class="last highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">b</span> <span class="o">=</span> <span class="n">Bruch</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>      <span class="c1"># Bruch(4, 1</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span> <span class="o">=</span> <span class="n">Bruch</span><span class="p">(</span><span class="n">b0</span><span class="p">)</span>     <span class="c1"># &#39;copy CTOR&#39;</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+<dl class="staticmethod">
+<dt id="bruch.Bruch._Bruch__add">
+<em class="property">static </em><code class="descname">_Bruch__add</code><span class="sig-paren">(</span><em>b0</em>, <em>b1</em><span class="sig-paren">)</span><a class="headerlink" href="#bruch.Bruch._Bruch__add" title="Permalink to this definition">¶</a></dt>
+<dd><p>Private helper method for adding 2 fractions.
+:param b0: a Fraction
+:param b1: a Fraction
+:return: The resulting Fraction with the denominator being the LCD of b0, b1</p>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="bruch.Bruch._Bruch__makeBruch">
+<em class="property">static </em><code class="descname">_Bruch__makeBruch</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#bruch.Bruch._Bruch__makeBruch" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a fraction from a value
+:param value: either a fraction or a integer
+:return: a fraction or throws an error if</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="bruch.Bruch.__abs__">
+<code class="descname">__abs__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/bruch/Bruch.html#Bruch.__abs__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bruch.Bruch.__abs__" title="Permalink to this definition">¶</a></dt>
+<dd><p>The absolute value of this
+:return: the abs(float(self)) value</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="bruch.Bruch.__add__">
+<code class="descname">__add__</code><span class="sig-paren">(</span><em>other</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bruch/Bruch.html#Bruch.__add__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bruch.Bruch.__add__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adds self and other see __add
+:param other: a fraction or an integer raises errors see __init__
+:return: a Fraction</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="bruch.Bruch.__complex__">
+<code class="descname">__complex__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/bruch/Bruch.html#Bruch.__complex__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bruch.Bruch.__complex__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Converts to a Complex number
+:return: the complex representation of this fraction</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bruch.Bruch.__dict__">
+<code class="descname">__dict__</code><em class="property"> = dict_proxy({'__int__': &lt;function __int__&gt;, '__module__': 'bruch.Bruch', '__rtruediv__': &lt;function __rtruediv__&gt;, '__str__': &lt;function __str__&gt;, '__radd__': &lt;function __radd__&gt;, '__dict__': &lt;attribute '__dict__' of 'Bruch' objects&gt;, '__truediv__': &lt;function __truediv__&gt;, '__rsub__': &lt;function __rsub__&gt;, '__rmul__': &lt;function __rmul__&gt;, '_Bruch__makeBruch': &lt;staticmethod object&gt;, '__weakref__': &lt;attribute '__weakref__' of 'Bruch' objects&gt;, '__lt__': &lt;function __lt__&gt;, '__init__': &lt;function __init__&gt;, '__float__': &lt;function __float__&gt;, '_Bruch__add': &lt;staticmethod object&gt;, '__abs__': &lt;function __abs__&gt;, '__complex__': &lt;function __complex__&gt;, '__doc__': &quot;\n    Represents a Fraction in the form of x / y\n    The Fraction utilizes lots of operator overloading it acts as you would expect a fraction to behave\n    addition and subtraction find the new deliminator by calculating the LCD of both.\n    Every operator returns a new object.\n    Beware the Fraction object is mutable, since self.zaehler and self.nenner are exposed as the tests require!\n\n    **How to use**\n        :Example:\n\n        &gt;&gt;&gt; b0 = Bruch(1, 2)  # creates a fraction 1 / 2\n        &gt;&gt;&gt; b1 = Bruch(1, 4)\n        &gt;&gt;&gt; res = b0 + b1     # -&gt; Bruch(3/4)\n\n        &gt;&gt;&gt; b = Bruch(4)      # Bruch(4, 1\n        &gt;&gt;&gt; b = Bruch(b0)     # 'copy CTOR'\n\n    &quot;, '__itruediv__': &lt;function __itruediv__&gt;, '__mul__': &lt;function __mul__&gt;, '__isub__': &lt;function __isub__&gt;, '__invert__': &lt;function __invert__&gt;, '__iter__': &lt;function __iter__&gt;, '__pow__': &lt;function __pow__&gt;, '__add__': &lt;function __add__&gt;, '__gt__': &lt;function __gt__&gt;, '__eq__': &lt;function __eq__&gt;, '__imul__': &lt;function __imul__&gt;, '__neg__': &lt;function __neg__&gt;, '__iadd__': &lt;function __iadd__&gt;, '__le__': &lt;function __le__&gt;, '__len__': &lt;function __len__&gt;, '__sub__': &lt;function __sub__&gt;, '__ge__': &lt;function __ge__&gt;})</em><a class="headerlink" href="#bruch.Bruch.__dict__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="bruch.Bruch.__eq__">
+<code class="descname">__eq__</code><span class="sig-paren">(</span><em>other</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bruch/Bruch.html#Bruch.__eq__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bruch.Bruch.__eq__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Tests if self is equal to other
+this is done by using floating point arithmetic
+and due to floating point precision errors this has the same
+problems.
+This method is discouraged due to floating point precision.
+:param other: a object that implements __float__
+:return: true or false</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="bruch.Bruch.__float__">
+<code class="descname">__float__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/bruch/Bruch.html#Bruch.__float__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bruch.Bruch.__float__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Converts to a float
+:return: the float representation of this fraction object</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="bruch.Bruch.__ge__">
+<code class="descname">__ge__</code><span class="sig-paren">(</span><em>other</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bruch/Bruch.html#Bruch.__ge__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bruch.Bruch.__ge__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Tests whether other is greater than or equal to self
+:param other: a object that implements __float__
+:return: True or False</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="bruch.Bruch.__gt__">
+<code class="descname">__gt__</code><span class="sig-paren">(</span><em>other</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bruch/Bruch.html#Bruch.__gt__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bruch.Bruch.__gt__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Tests whether other is greater than self
+:param other: a object that implements __float__
+:return: True or False</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="bruch.Bruch.__iadd__">
+<code class="descname">__iadd__</code><span class="sig-paren">(</span><em>other</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bruch/Bruch.html#Bruch.__iadd__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bruch.Bruch.__iadd__" title="Permalink to this definition">¶</a></dt>
+<dd><p>see __add__
+:param other: see __add__
+:return: a fraction</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="bruch.Bruch.__imul__">
+<code class="descname">__imul__</code><span class="sig-paren">(</span><em>other</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bruch/Bruch.html#Bruch.__imul__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bruch.Bruch.__imul__" title="Permalink to this definition">¶</a></dt>
+<dd><p>see __mul__
+:param other: see __mul__
+:return: a fraction</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="bruch.Bruch.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>*args</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bruch/Bruch.html#Bruch.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bruch.Bruch.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Initializes a fraction or Throws errors IF:</dt>
+<dd><p class="first"><strong>len(args) == 0 or &gt; 2</strong>                                   ==&gt; Value Error</p>
+<p><strong>len(args) == 1 and args[0] neither int nor fraction</strong>    ==&gt; Type Error</p>
+<p><strong>len(args) == 2 and args[1] == 0</strong>                         ==&gt; Zero Division Error</p>
+<p class="last"><strong>len(args) == 2 and args[0 or 1] is not an int</strong>           ==&gt; Type Error</p>
+</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>args</strong> &#8211; multiple arguments <strong>either</strong> (int), (int, int), (fraction)
+if (int) then (int, 1) is assumed.
+if (fraction) the object will be copied!</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="bruch.Bruch.__int__">
+<code class="descname">__int__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/bruch/Bruch.html#Bruch.__int__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bruch.Bruch.__int__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Converts to an int
+:return: the integer representation of this fraction object.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="bruch.Bruch.__invert__">
+<code class="descname">__invert__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/bruch/Bruch.html#Bruch.__invert__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bruch.Bruch.__invert__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Flips denominator and numerator
+:return: a flipped fraction</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="bruch.Bruch.__isub__">
+<code class="descname">__isub__</code><span class="sig-paren">(</span><em>other</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bruch/Bruch.html#Bruch.__isub__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bruch.Bruch.__isub__" title="Permalink to this definition">¶</a></dt>
+<dd><p>see __sub__
+:param other: see __sub__
+:return: a fraction</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="bruch.Bruch.__iter__">
+<code class="descname">__iter__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/bruch/Bruch.html#Bruch.__iter__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bruch.Bruch.__iter__" title="Permalink to this definition">¶</a></dt>
+<dd><p>an iterator on the fraction in sequence representation
+:return: the iterator</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="bruch.Bruch.__itruediv__">
+<code class="descname">__itruediv__</code><span class="sig-paren">(</span><em>other</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bruch/Bruch.html#Bruch.__itruediv__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bruch.Bruch.__itruediv__" title="Permalink to this definition">¶</a></dt>
+<dd><p>see __truediv__
+:param other: see __truediv__
+:return: a fraction</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="bruch.Bruch.__le__">
+<code class="descname">__le__</code><span class="sig-paren">(</span><em>other</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bruch/Bruch.html#Bruch.__le__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bruch.Bruch.__le__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Tests whether other is less than or equal to self
+:param other: a object that implements __float__
+:return: True or False</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="bruch.Bruch.__len__">
+<code class="descname">__len__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/bruch/Bruch.html#Bruch.__len__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bruch.Bruch.__len__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Length of this object in order to treat it as a sequence for
+assignment destructuring like a, b = fraction.
+:return: the const value 2</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="bruch.Bruch.__lt__">
+<code class="descname">__lt__</code><span class="sig-paren">(</span><em>other</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bruch/Bruch.html#Bruch.__lt__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bruch.Bruch.__lt__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Tests whether other is less than self
+:param other: a object that implements __float__
+:return: True or False</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bruch.Bruch.__module__">
+<code class="descname">__module__</code><em class="property"> = 'bruch.Bruch'</em><a class="headerlink" href="#bruch.Bruch.__module__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="bruch.Bruch.__mul__">
+<code class="descname">__mul__</code><span class="sig-paren">(</span><em>other</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bruch/Bruch.html#Bruch.__mul__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bruch.Bruch.__mul__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Multiplies self with other
+:param other: a fraction or int, see __init__
+:return: a fraction</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="bruch.Bruch.__neg__">
+<code class="descname">__neg__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/bruch/Bruch.html#Bruch.__neg__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bruch.Bruch.__neg__" title="Permalink to this definition">¶</a></dt>
+<dd><p>multiplies the enumerator by -1
+:return: the negated fraction</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="bruch.Bruch.__pow__">
+<code class="descname">__pow__</code><span class="sig-paren">(</span><em>power</em>, <em>modulo=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bruch/Bruch.html#Bruch.__pow__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bruch.Bruch.__pow__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the fraction raised to power &#8216;power&#8217;
+:param power: the power to which the fraction is raised.
+:param modulo: unused
+:return: this fraction raised to power.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="bruch.Bruch.__radd__">
+<code class="descname">__radd__</code><span class="sig-paren">(</span><em>other</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bruch/Bruch.html#Bruch.__radd__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bruch.Bruch.__radd__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reflected add see __add__
+:param other: see __add__
+:return: returns a fraction</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="bruch.Bruch.__rmul__">
+<code class="descname">__rmul__</code><span class="sig-paren">(</span><em>other</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bruch/Bruch.html#Bruch.__rmul__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bruch.Bruch.__rmul__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reflected multiplication
+:param other: see __mul__
+:return: a fraction</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="bruch.Bruch.__rsub__">
+<code class="descname">__rsub__</code><span class="sig-paren">(</span><em>other</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bruch/Bruch.html#Bruch.__rsub__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bruch.Bruch.__rsub__" title="Permalink to this definition">¶</a></dt>
+<dd><p>see __sub__
+:param other: see __sub__
+:return: a fraction</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="bruch.Bruch.__rtruediv__">
+<code class="descname">__rtruediv__</code><span class="sig-paren">(</span><em>other</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bruch/Bruch.html#Bruch.__rtruediv__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bruch.Bruch.__rtruediv__" title="Permalink to this definition">¶</a></dt>
+<dd><p>see __truediv__
+:param other: see __truediv__
+:return: a fraction</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="bruch.Bruch.__str__">
+<code class="descname">__str__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/bruch/Bruch.html#Bruch.__str__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bruch.Bruch.__str__" title="Permalink to this definition">¶</a></dt>
+<dd><p>The string representation of this fraction
+:return: (numerator/deliminator) as a string</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="bruch.Bruch.__sub__">
+<code class="descname">__sub__</code><span class="sig-paren">(</span><em>other</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bruch/Bruch.html#Bruch.__sub__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bruch.Bruch.__sub__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Negates other and adds it to self, see __add__
+:param other: a fraction or number, see __init__
+:return: a fraction</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="bruch.Bruch.__truediv__">
+<code class="descname">__truediv__</code><span class="sig-paren">(</span><em>other</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bruch/Bruch.html#Bruch.__truediv__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bruch.Bruch.__truediv__" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns self divided by other this is done by inverting fraction
+:param other: a fraction or an integer, see __int__
+:return:</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bruch.Bruch.__weakref__">
+<code class="descname">__weakref__</code><a class="headerlink" href="#bruch.Bruch.__weakref__" title="Permalink to this definition">¶</a></dt>
+<dd><p>list of weak references to the object (if defined)</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="index.html"
+                        title="previous chapter">Welcome to Bruch&#8217;s documentation!</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/bruch.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Welcome to Bruch’s documentation!"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Bruch 1.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2016, Pierre Rieger.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.8.
+    </div>
+  </body>
+</html>
