@@ -93,6 +93,10 @@ class Bruch(object):
         b = kv // mx.nenner
         return Bruch(mi.zaehler * a + mx.zaehler * b, kv)
 
+    @staticmethod
+    def __makeBruch(value):
+        return Bruch(value)
+
     def __add__(self, other):
         other = Bruch(other)
         return Bruch.__add(self, other)
@@ -108,11 +112,10 @@ class Bruch(object):
         return Bruch.__add(self, other)
 
     def __rsub__(self, other):
-        other = -Bruch(other)
-        return self + other
+        return -self + other
 
     def __isub__(self, other):
-        return other - self
+        return self - other
 
     def __mul__(self, other):
         other = Bruch(other)
