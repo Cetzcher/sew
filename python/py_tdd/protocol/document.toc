@@ -1,5 +1,5 @@
 \contentsline {section}{\numberline {1}Introduction}{1}{section.1}
 \contentsline {section}{\numberline {2}Code}{1}{section.2}
-\contentsline {subsection}{\numberline {2.1}about the code}{1}{subsection.2.1}
+\contentsline {subsection}{\numberline {2.1}About the code}{1}{subsection.2.1}
 \contentsline {section}{\numberline {3}Tests}{1}{section.3}
 \contentsline {section}{\numberline {4}Documentation}{4}{section.4}
