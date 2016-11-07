@@ -1,0 +1,14 @@
+Model
+-----
+
+
+.. automodule:: model
+    :members:
+    :undoc-members:
+
+.. autoclass:: Model
+    :members:
+    :special-members:
+    :private-members:
+    :undoc-members:
+    :show-inheritance:

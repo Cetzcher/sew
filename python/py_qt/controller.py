@@ -13,6 +13,12 @@ class Controller:
     """
 
     def __init__(self, model, view):
+        """
+        initalizes the controller and binds it to the model and the associated view.
+        :param model: a instance of Model (see model.py) must expose the attributes
+        rng, last_clicked_button, open, correct, wrong, games
+        :param view: an instance of a view that has at least 15 buttons named b0 through b15
+        """
         if not isinstance(view, Ui_MyGame):
             raise TypeError()
         self.__view = view
@@ -25,9 +31,10 @@ class Controller:
 
     def __get_all_buttons(self):
         """
-        Returns all buttons of the view, this is rather,
+        Returns all buttons of the view, this is rather hackish,
         this assumes that the name of every used control button is in the
-        form bN where N is a integer in the range 0 to _MAX_BUTTONS
+        form bN where N is a integer in the range 0 to _MAX_BUTTONS, this makes the type more extensible
+        just by changing _MAX_BUTTONS and adding more buttons to the .ui file
         :return: a button list.
         """
         arr = []

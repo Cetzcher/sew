@@ -3,15 +3,16 @@ import controller as cntrl
 from view import *
 from PySide import QtGui
 
-app = QtGui.QApplication(sys.argv)
-win = QtGui.QMainWindow()
-# create model view and controller.
-view = Ui_MyGame()
+if __name__ == '__main__':
+    app = QtGui.QApplication(sys.argv)
+    win = QtGui.QMainWindow()
+    # create model view and controller.
+    view = Ui_MyGame()
 
-view.setupUi(win)  # this initializes the created UI
-mod = model.Model()
-cnt = cntrl.Controller(mod, view)
+    view.setupUi(win)  # this initializes the created UI
+    mod = model.Model()
+    cnt = cntrl.Controller(mod, view)
 
-win.show()
-app.exec_()
-sys.exit()
+    win.show()
+    app.exec_()
+    sys.exit()
